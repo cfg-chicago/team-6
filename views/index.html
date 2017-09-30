@@ -12,7 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/css/style.css' />
 
-
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js'></script>
+    <script src="../js/timeline.js"></script>
 </head>
 
 <body ng-app='myApp' ng-cloak>
@@ -25,21 +30,21 @@
                     </md-button>
                 </div>
                 <div flex flex-offset="10">
-                    <img src="../public/img/woodlogo.png"></img>
-                    <!-- <h1>HomePlate</h1> -->
                 </div>
                 <div hide show-gt-sm layout="row">
-                    <md-button onclick="open_login()" id="login_btn">Login</md-button>
-                    <script>
-                      function open_login(){
-                        document.getElementById('login_div').style.display = 'inherit'
-                      }
-                    </script>
+                    <md-button ng-click="open_login()" id="login_btn">Login</md-button>
                 </div>
-            
+
             </div>
         </md-toolbar>
-        <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+        
+        <div id="login_div" ng-hide="isAuth" layout-align="center center" layout="column">
+          Username: <input type="text" ng-model="username"id="username" value="">
+          Password: <input type="password" ng-model="password" id="password" value="">
+
+          <md-button ng-click="auth()">Login</md-button>
+        </div>
+        <!-- <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
             <md-content layout-padding ng-controller="LeftCtrl">
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-click="goProfile()">
@@ -68,22 +73,15 @@
                     <md-divider></md-divider>
                 </md-list>
             </md-content>
-        </md-sidenav>
+        </md-sidenav> -->
         <!--sidenav-->
         <div ng-view ></div>
-        <div id="login_div" ng-hide="isAuth" layout-align="center center" layout="column">
-          Username: <input type="text" ng-model="username"id="username" value="">
-          Password: <input type="password" ng-model="password" id="password" value="">
-
-          <md-button ng-click="auth()">Login</md-button>
-        
-        </div>
         <footer>
         </footer>
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
     <script>
-      
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>

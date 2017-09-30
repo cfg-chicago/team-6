@@ -1,25 +1,19 @@
 app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
-    console.log('Auth Controller!');
-    $scope.auth = function auth() {
 
-        firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
+      console.log('Auth Controller!');
+      $scope.isAuth = true;
+      $scope.auth = function auth() {
 
-        });
+      firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
 
-        $scope.isAuth = true;
-    }
+      });
 
+        $scope.isAuth=true;
+      }
 
-
-
-
-
-
-
-
-
-
-
+      $scope.open_login = function open_login() {
+        $scope.isAuth = false;
+      }
 
     $scope.toggleLeft = buildDelayedToggler('left');
 
