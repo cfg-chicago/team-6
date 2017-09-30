@@ -561,7 +561,7 @@ Main Components
 
 /* The starting CSS styles for the enter animation */
 .fade.ng-enter {
-  transition:0.5s linear all;
+  transition:1.5s linear all;
   opacity:0;
 }
 
@@ -570,7 +570,7 @@ Main Components
   opacity:1;
 }
 .fade.ng-leave {
-  transition:0.5s linear all;
+  transition:1.5s linear all;
   opacity:1;
 }
 .fade.ng-leave.ng-leave-active {
@@ -585,4 +585,30 @@ Main Components
 .logo{
   margin-left: 42.5%;
   margin-bottom: 5%;
+}
+.user-logo{
+    width: 200px;
+    padding:10px;
+    border: 1px solid black;
+}
+.user-about{
+    text-align: center;
+
+}
+
+/* there is no need to define anything inside of the destination
+CSS class since the keyframe will take charge of the animation */
+.fade.ng-leave {
+  animation: my_fade_animation 0.5s linear;
+  -webkit-animation: my_fade_animation 0.5s linear;
+}
+
+@keyframes my_fade_animation {
+  from { opacity:1; }
+  to { opacity:0; }
+}
+
+@-webkit-keyframes my_fade_animation {
+  from { opacity:1; }
+  to { opacity:0; }
 }
