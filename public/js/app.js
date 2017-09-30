@@ -1,10 +1,10 @@
-  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase']);
+  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'mp.colorPicker']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
 // Home
 // Pages
-  .when("/user", {templateUrl: "partials/user-template.html", controller: "AppCtrl"})
+  .when("/user", {templateUrl: "partials/user-template.html", controller: "UserCtrl"})
   .when("/", {templateUrl: "partials/home.html", controller: "AppCtrl"})
   
 /* etc… routes to other pages… */

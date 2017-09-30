@@ -19,6 +19,11 @@
     <div ng-controller="AuthCtrl" layout="column" ng-cloak>
         <md-toolbar id="header" class="md-primary ">
             <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+                 <div>
+                    <md-button hide-gt-sm class="md-icon-button" aria-label="Settings" ng-click="toggleLeft()">
+                        <i class="material-icons">menu</i>
+                    </md-button>
+                </div>
                 <div flex flex-offset="10">
                     <img src="../public/img/woodlogo.png"></img>
                     <!-- <h1>HomePlate</h1> -->
@@ -26,15 +31,11 @@
                 <div hide show-gt-sm layout="row">
                     <md-button>Login</md-button>
                 </div>
-                <div>
-                    <md-button hide-gt-sm class="md-icon-button" aria-label="Settings" ng-click="toggleRight()">
-                        <i class="material-icons">menu</i>
-                    </md-button>
-                </div>
+            
             </div>
         </md-toolbar>
-        <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
-            <md-content layout-padding ng-controller="RightCtrl">
+        <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+            <md-content layout-padding ng-controller="LeftCtrl">
                 <md-list flex>
                     <md-list-item class="md-3-line" ng-click="goProfile()">
                         <img ng-src="img/profpic.png" class="md-avatar" alt="blahfa" />
@@ -86,6 +87,7 @@
     </script>
     <script type="text/javascript" src="js/controllers.js">
     </script>
+    <script type="text/javascript" src="js/directives/angular-colorpicker.js"></script>
 
 </body>
 

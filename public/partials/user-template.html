@@ -1,1 +1,36 @@
 <h1>User page</h1>
+<md-toolbar>
+</md-toolbar>
+<div>
+    <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
+        Toggle right
+    </md-button>
+</div>
+
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+    <md-content ng-controller="RightCtrl" layout-padding>
+     	<color-picker ng-model="color">
+        </color-picker>
+        <form>
+            <md-input-container>
+                <label for="testInput">Test input</label>
+                <input type="text" id="testInput" ng-model="data" md-autofocus>
+            </md-input-container>
+        </form>
+        <md-button ng-click="close()" class="md-primary">
+            Close Sidenav Right
+        </md-button>
+    </md-content>
+</md-sidenav>
+<md-button ng-click="close()" class="md-primary">
+    Close Sidenav Right
+</md-button>
+<div class="user-Logo">
+</div>
+<div class="user-PP"></div>
+<div class="user-projects"></div>
+<div class="user-timeline"></div>
+<div class="user-about"></div>
+<div class="user-interests"></div>
+<div class="user-fav-song"></div>
+<md-button>edit</md-button>
