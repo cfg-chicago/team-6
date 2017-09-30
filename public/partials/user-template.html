@@ -55,12 +55,21 @@
             <p> I'm a young and ambitious kid! When I grow up I want to be a doctor, a lawyer and a baseball player!</p>
         </div>
     </div>
-    <div>
-        <md-content ng-controller="FeedbackCtrl" layout-padding>
-            <md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Sentiment analysis</md-button>
+    <div ng-controller="FeedbackCtrl" layout-padding>
+    <div ng-hide="" class="chat">
+    	<h3>Hey {{user.name}}, please tell us all about your day</h3>
+
+        <md-input-container class="md-block">
+          <label>Tell us how you feel</label>
+          <textarea ng-model="input" md-maxlength="400" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+        
+            <md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Submit</md-button>
             <pre>{{sentiment}}</pre>
         </div>
-    </md-content>
+    	</div>
+
     <div layout="row" layout-align="start center" layout-padding>
         <div flex="40" class="user-interests">
             <md-card>

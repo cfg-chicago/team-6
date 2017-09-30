@@ -163,7 +163,7 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             "documents": [{
                 "language": "en",
                 "id": "12345",
-                "text": "The field trip was super fun. I think I would like to go again. I really dont like my teacher though. i hate school. school is such a bitch"
+                "text": $scope.input
             }]
         };
 
@@ -179,12 +179,14 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             data: payload
         };
 
+
         $http(config).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
             $scope.sentiment=response;
 
             console.log(response);
+            $scope.submitted=true;
 
         }, function errorCallback(response) {
             console.log(response);

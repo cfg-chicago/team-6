@@ -541,6 +541,10 @@ Main Components
   padding: 10px;
 }
 
+.chat{
+    padding: 20px;
+    background-color: #D3F3EE;
+}
 .white{
     background-color: white;
 }
@@ -551,5 +555,5 @@ Main Components
     background-color: #DACC3E;
 }
 .lblue{
-    background-color: #D3F3EE;
+    background-color: white;
 }
