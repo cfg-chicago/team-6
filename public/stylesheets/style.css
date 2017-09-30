@@ -521,4 +521,10 @@ Main Components
 /*login box css*/
 #login_div {
   z-index: 10000;
+  background-color: white;
+  margin: 25%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
 }
