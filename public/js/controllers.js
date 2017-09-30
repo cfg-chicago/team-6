@@ -2,17 +2,33 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 
       console.log('Auth Controller!');
       $scope.isAuth = true;
+      $scope.logged_in = false;
       $scope.auth = function auth() {
 
       firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
 
       });
-
+        $scope.logged_in = true;
         $scope.isAuth=true;
       }
 
       $scope.open_login = function open_login() {
         $scope.isAuth = false;
+
+        //var userID = firebase.auth().currentUser.uid;
+
+        // firebase.database().ref('users/' + userID).set({
+        //     "background-color": "blue",
+        //     "bio": "My name is Tommy and I love soccer!",
+        //     "img": "tommy.png",
+        //     "interests": "soccer"
+        // });
+
+      }
+
+      $scope.log_out = function log_out(){
+        firebase.auth().signOut();
+        $scope.logged_in = false;
       }
 
     $scope.toggleLeft = buildDelayedToggler('left');

@@ -32,17 +32,18 @@
                 <div flex flex-offset="10">
                 </div>
                 <div hide show-gt-sm layout="row">
-                    <md-button ng-click="open_login()" id="login_btn">Login</md-button>
+                    <md-button ng-hide="logged_in" ng-click="open_login()" id="login_btn">Login</md-button>
+                    <md-button ng-hide="!logged_in" ng-click="log_out()" id="logout">Logout</md-button>
                 </div>
 
             </div>
         </md-toolbar>
-        
+
         <div id="login_div" ng-hide="isAuth" layout-align="center center" layout="column">
           Username: <input type="text" ng-model="username"id="username" value="">
           Password: <input type="password" ng-model="password" id="password" value="">
 
-          <md-button ng-click="auth()">Login</md-button>
+          <md-button ng-click="auth()" id="loginout">Login</md-button>
         </div>
         <!-- <md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
             <md-content layout-padding ng-controller="LeftCtrl">
