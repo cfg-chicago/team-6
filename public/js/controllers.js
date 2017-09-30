@@ -1,19 +1,19 @@
 app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
 
-      console.log('Auth Controller!');
-      $scope.isAuth = true;
-      $scope.auth = function auth() {
+    console.log('Auth Controller!');
+    $scope.isAuth = true;
+    $scope.auth = function auth() {
 
-      firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
+        firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
 
-      });
+        });
 
-        $scope.isAuth=true;
-      }
+        $scope.isAuth = true;
+    }
 
-      $scope.open_login = function open_login() {
+    $scope.open_login = function open_login() {
         $scope.isAuth = false;
-      }
+    }
 
     $scope.toggleLeft = buildDelayedToggler('left');
 
@@ -128,6 +128,44 @@ app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
 
 
 });
+app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
+    $scope.input;
+    $scope.sentimentAnalysisCall = function() {
+        var payload = {
+            "documents": [{
+                "language": "en",
+                "id": "12345",
+                "text": "The field trip was super fun. I think I would like to go again. I really dont like my teacher though. i hate school. school is such a bitch"
+            }]
+        };
+   
+        var config = {
+            method: 'POST',
+            url: 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment',
+            headers: {
+                "ocp-apim-subscription-key": "17ccb92b251e41e2b9a4bbda1ad76ab2",
+                "content-type": "application/json",
+                "accept": "application/json"
+            },
+            //x-www-form-urlencoded
+            data: payload
+        };
+
+        $http(config).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            $scope.sentiment=response;
+            console.log(response);
+
+        }, function errorCallback(response) {
+            console.log(response);
+            console.log('failedd');
+
+
+        });
+    }
+
+});
 
 app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
     $scope.close = function() {
@@ -140,12 +178,7 @@ app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $locati
     };
 });
 
-app.controller('slideShowCtrl', ['$scope', function($scope) {
-    $scope.slides = [
-        { name: 'Not my cat.', url: 'https://farm2.staticflickr.com/1318/5114665665_e55b2c2169_n.jpg' },
-        { name: 'Again, not my cat.', url: 'https://farm2.staticflickr.com/1079/901626554_8bc51ec160_n.jpg' }
-    ]
-}]);
+
 app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function() {
         // Component lookup should always be available since we are not using `ng-if`
