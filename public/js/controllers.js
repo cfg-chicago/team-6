@@ -14,33 +14,10 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
       });
         $scope.logged_in = true;
         $scope.isAuth=true;
-
-        var userID = firebase.auth().currentUser.uid;
-
-        firebase.database().ref('users/' + userID).set({
-            "firstName": "Dummy",
-            "lastName": "DumbDumb",
-            "background-color": "Blue",
-            "bio": "My name is Dummy and I'm a fake person!",
-            "img": "Dummy.png",
-            "interests": "being inanimate"
-        });
       }
 
     $scope.open_login = function open_login() {
         $scope.isAuth = false;
-
-
-
-        //var userID = firebase.auth().currentUser.uid;
-
-        // firebase.database().ref('users/' + userID).set({
-        //     "background-color": "blue",
-        //     "bio": "My name is Tommy and I love soccer!",
-        //     "img": "tommy.png",
-        //     "interests": "soccer"
-        // });
-
 
       }
 
@@ -100,6 +77,11 @@ app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log) {
 });
 app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
     //getuserdata from firebase
+    var userId = firebase.auth().currentUser.uid;
+    return firebase.database().ref('/users/' + userId).once('background').then(function(snapshot) {
+      var color = snapshot.val();
+    });
+
 
 
     $scope.backgroundcolor={
@@ -179,7 +161,7 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
                 "text": "The field trip was super fun. I think I would like to go again. I really dont like my teacher though. i hate school. school is such a bitch"
             }]
         };
-   
+
         var config = {
             method: 'POST',
             url: 'https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment',
