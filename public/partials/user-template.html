@@ -1,6 +1,5 @@
 <h1>User page</h1>
-<md-toolbar>
-</md-toolbar>
+
 <div>
     <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
         Toggle right
@@ -33,7 +32,7 @@
 <div class="user-timeline"></div>
 <div class="user-about"></div>
 
-	<div layout="row" layout-align="start center">
+	<div layout="row" layout-align="start center" layout-padding>
 	<div flex="40" class="user-interests">
 	 <md-card>
         <img ng-src="img/baseball.jpg " class="md-card-image" alt="Washed Out">
@@ -44,13 +43,16 @@
         </md-card-title>
         <md-card-content>
           <p>
-            Baseball, soccer, reading, sleeping, memes
+            Baseball, soccer, reading, sleeping, memes <i class="material-icons">mode_edit</i>
             
           </p>
         
         </md-card-content>
        
       </md-card>
+</div>
+<div flex="60" class="user-activity">
+	<h2> Latest activity</h2>
 </div>
 </div>
 <div class="user-fav-song"></div>
