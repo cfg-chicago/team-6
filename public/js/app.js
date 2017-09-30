@@ -1,3 +1,14 @@
+// Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALD9B5BG_ErNw8EgckSaBVxFuzKHxImbA",
+        authDomain: "dugout-db978.firebaseapp.com",
+        databaseURL: "https://dugout-db978.firebaseio.com",
+        projectId: "dugout-db978",
+        storageBucket: "dugout-db978.appspot.com",
+        messagingSenderId: "631699743409"
+      };
+      firebase.initializeApp(config); 
+
   var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'mp.colorPicker']);
 
 app.config(function($routeProvider, $locationProvider) {

@@ -1,9 +1,28 @@
 app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
     console.log('Auth Controller!');
+        $scope.auth = function auth() {
+        
+        firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
+
+        });
+
+        $scope.isAuth=true;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     $scope.toggleLeft = buildDelayedToggler('left');
-    
+
     /**
      * Build handler to open/close a SideNav; when animation finishes
      * report completion in console
@@ -54,7 +73,7 @@ app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
     //getuserdata from firebase
 
 
-    $scope.color="";
+    $scope.color = "";
 
 
 
@@ -126,13 +145,13 @@ app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $locati
 
     };
 });
-app.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
-      // Component lookup should always be available since we are not using `ng-if`
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
+app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function() {
+        // Component lookup should always be available since we are not using `ng-if`
+        $mdSidenav('left').close()
+            .then(function() {
+                $log.debug("close LEFT is done");
+            });
 
     };
-  });
+});
