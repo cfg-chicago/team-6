@@ -9,7 +9,7 @@
       };
       firebase.initializeApp(config); 
 
-  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'mp.colorPicker']);
+  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'simple-slideshow']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
