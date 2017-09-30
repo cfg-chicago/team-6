@@ -10,20 +10,21 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
       });
         $scope.logged_in = true;
         $scope.isAuth=true;
+
+        var userID = firebase.auth().currentUser.uid;
+
+        firebase.database().ref('users/' + userID).set({
+            "firstName": "Dummy",
+            "lastName": "DumbDumb",
+            "background-color": "Blue",
+            "bio": "My name is Dummy and I'm a fake person!",
+            "img": "Dummy.png",
+            "interests": "being inanimate"
+        });
       }
 
       $scope.open_login = function open_login() {
         $scope.isAuth = false;
-
-        //var userID = firebase.auth().currentUser.uid;
-
-        // firebase.database().ref('users/' + userID).set({
-        //     "background-color": "blue",
-        //     "bio": "My name is Tommy and I love soccer!",
-        //     "img": "tommy.png",
-        //     "interests": "soccer"
-        // });
-
       }
 
       $scope.log_out = function log_out(){
