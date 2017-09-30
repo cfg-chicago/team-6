@@ -5,6 +5,24 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js'></script>
 <script src="../js/timeline.js"></script>
 
+<script>
+function saveEdits() {
+
+//get the editable element
+var editElem = document.getElementById("edit");
+
+//get the edited element content
+var userVersion = editElem.innerHTML;
+
+//save the content to local storage
+localStorage.userEdits = userVersion;
+
+//write a confirmation to the user
+document.getElementById("update").innerHTML="Edits saved!";
+
+}
+</script>
+
 <section class="cd-horizontal-timeline">
 	<div class="timeline">
 		<div class="events-wrapper">
@@ -40,7 +58,10 @@
 				<em>4th Grade trip</em>
 				<p>	
 					<img src="../img/camping.jpg" alt = "camp" class = "post_pic">
+					<div id = "edit" contentidtable="true">
 					Had a great time camping wth all my friends today.
+					</div>
+					<input type="button" value="Edit text" onclick="saveEdits()"/>
 				</p>
 			</li>
 
