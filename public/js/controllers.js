@@ -186,7 +186,10 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             $scope.sentiment=response;
 
             console.log(response);
-            $scope.submitted=true;
+            $scope.submitted1=true;
+            $timeout( function() {
+                $scope.submitted=true;
+            },750);
 
         }, function errorCallback(response) {
             console.log(response);

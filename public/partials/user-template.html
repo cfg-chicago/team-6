@@ -56,17 +56,20 @@
         </div>
     </div>
     <div ng-controller="FeedbackCtrl" layout-padding>
-    <div ng-hide="" class="chat">
-    	<h3>Hey {{user.name}}, please tell us all about your day</h3>
+    <div ng-hide="submitted" class="chat">
+    	<h3>Hey {{user.name}}, tell us about your experience :)</h3>
 
         <md-input-container class="md-block">
           <label>Tell us how you feel</label>
-          <textarea ng-model="input" md-maxlength="400" rows="5" md-select-on-focus></textarea>
+          <textarea ng-model="input" minlength="200" md-maxlength="400" rows="5" md-select-on-focus></textarea>
         </md-input-container>
 
         
             <md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Submit</md-button>
             <pre>{{sentiment}}</pre>
+            <div ng-show="submitted1">
+            	<p>Thank you for your response :) </p>
+            </div>
         </div>
     	</div>
 
