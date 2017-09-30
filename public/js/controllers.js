@@ -12,6 +12,14 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 
 
       });
+        var userId = firebase.auth().currentUser.uid;
+    function getFromFirebase(){
+        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+    });
+
+    }
+    getFromFirebase();
         $scope.logged_in = true;
         $scope.isAuth=true;
       }
@@ -75,12 +83,9 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log) {
     console.log('App Controller!');
 });
-app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
+app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log, $firebase, $firebaseAuth) {
     //getuserdata from firebase
-    var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/' + userId).once('background').then(function(snapshot) {
-      var color = snapshot.val();
-    });
+    
 
 
 
@@ -178,6 +183,7 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             // this callback will be called asynchronously
             // when the response is available
             $scope.sentiment=response;
+
             console.log(response);
 
         }, function errorCallback(response) {
