@@ -6,33 +6,15 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js'></script>
 <script src="../js/timeline.js"></script>
 
-<script>
-function saveEdits() {
-
-//get the editable element
-var editElem = document.getElementById("edit");
-
-//get the edited element content
-var userVersion = editElem.innerHTML;
-
-//save the content to local storage
-localStorage.userEdits = userVersion;
-
-//write a confirmation to the user
-document.getElementById("update").innerHTML="Edits saved!";
-
-}
-</script>
-
 <section class="cd-horizontal-timeline">
 	<div class="timeline">
 		<div class="events-wrapper">
 			<div class="events">
 				<ol>
-					<li><a href="#0" data-date="16/01/2014" class="selected">2009</a></li>
-					<li><a href="#0" data-date="28/02/2014">2010</a></li>
-					<li><a href="#0" data-date="20/04/2014">2011</a></li>
-					<li><a href="#0" data-date="20/05/2014">2012</a></li>
+					<li><a href="#0" data-date="16/01/2014" class="selected">Camping Trip</a></li>
+					<li><a href="#0" data-date="28/02/2014">Baseball </a></li>
+					<li><a href="#0" data-date="05/04/2014">Pumpkin Carving</a></li>
+					<li><a href="#0" data-date="20/05/2014">Park Trip</a></li>
 					<li><a href="#0" data-date="09/07/2014">2013</a></li>
 					<li><a href="#0" data-date="30/08/2014">2014</a></li>
 					<li><a href="#0" data-date="15/09/2014">2015</a></li>
@@ -56,29 +38,34 @@ document.getElementById("update").innerHTML="Edits saved!";
 				<em>4th Grade trip</em>
 				<p>	
 					<img src="../img/camping.jpg" alt = "camp" class = "post_pic">
-					<div id = "edit" contentidtable="true">
-					</div>
-					<a href="/user" class="studentname"> Laura </a>
+					The 4th graders went on a camping trip with one another. They developed skills in teamwork, leadership, and survival. In addition, an appreciation for what we already have was developed from the harsh conditions while camping. Many students reported they would be interested in future camping trips and had a positive experience.
 				</p>
 			</li>
 
 			<li data-date="28/02/2014">
-				<h2>Trip to Chuck-E-Cheese</h2>
-				<em>8th Grade trip</em>
-			    <a href="/user" class="studentname"> Tahj </a>
+				<h2>Baseball</h2>
+				<em>7th Graders vs 8th Graders</em>
+				<p>
+				<img src="../img/game.jpg" alt = "game" class = "post_pic">
+				The 7th and 8th graders duked it out in a close game of baseball. The 8th graders pulled ahead early, but the 7th graders made a comeback towards the end to secure the victory. Today the younger children are victorious over the older and more seasoned students here at Woods Family Foundation!
+				</p>
 			</li>
 
-			<li data-date="20/04/2014">
-				<h2>Logo Design</h2>
-				<em>All grades</em>
-                <a href="/user" class="studentname"> Tommy </a>
+			<li data-date="05/04/2014">
+				<h2>Pumpkin Carving</h2>
+				<em>5th Graders Learn Carving</em>
+				<p>
+					<img src="../img/pumpkin.jpg" alt = "carving" class = "post_pic">
+					5th graders gathered today after class to carve pumpkings with mentors! Knives and proper safety was taught to all participating students. Many cute and adorable pumpkins were carved! Alicia carved the best pumpkin and won a gift card
+				</p>
 			</li>
 
 			<li data-date="20/05/2014">
-				<h2>Family Dinner</h2>
-				<em>All grades</em>
+				<h2>Park Trip</h2>
+				<em>Children walk around park</em>
 				<p>	
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+					<img src="../img/walking.jpg" alt = "park" class = "post_pic">
+					Today we escaped the confines to enjoy the beautiful Chicago weather! Children walked and several rounds of icebreakers were played between children. Hard to beat new friendships, good weather, and the beautiful weather Chicago has to offer!
 				</p>
 			</li>
 		</ol>
