@@ -9,8 +9,7 @@
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
     <md-content ng-controller="RightCtrl" layout-padding>
-     	<color-picker ng-model="color">
-        </color-picker>
+
         <form>
             <md-input-container>
                 <label for="testInput">Test input</label>
@@ -22,15 +21,40 @@
         </md-button>
     </md-content>
 </md-sidenav>
+
 <md-button ng-click="close()" class="md-primary">
     Close Sidenav Right
 </md-button>
 <div class="user-Logo">
+	<img ng-src=""/>
 </div>
 <div class="user-PP"></div>
 <div class="user-projects"></div>
 <div class="user-timeline"></div>
 <div class="user-about"></div>
-<div class="user-interests"></div>
+
+	<div layout="row" layout-align="start center">
+	<div flex="40" class="user-interests">
+	 <md-card>
+        <img ng-src="img/baseball.jpg " class="md-card-image" alt="Washed Out">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Interests</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p>
+            Baseball, soccer, reading, sleeping, memes
+            
+          </p>
+        
+        </md-card-content>
+       
+      </md-card>
+</div>
+</div>
 <div class="user-fav-song"></div>
 <md-button>edit</md-button>
+
+
+
