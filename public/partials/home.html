@@ -2,9 +2,12 @@
 <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
 <link rel="stylesheet" href="../stylesheets/style.css">
 <link rel="stylesheet" href="../stylesheets/style2.css">
+<link rel="stylesheet" href="../stylesheets/carousel.css">
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js'></script>
 <script src="../js/timeline.js"></script>
+<script src="../js/carousel.js"></script>
 
 <section class="cd-horizontal-timeline">
 	<div class="timeline">
@@ -37,8 +40,38 @@
 				<h2>Awesome Camp Trip</h2>
 				<em>4th Grade trip</em>
 				<p>	
-					<img src="../img/camping.jpg" alt = "camp" class = "post_pic">
+					<div class="slideshow-container">
+						<div class="mySlides fade">
+							<div class="numbertext">1 / 3</div>
+								<img src="../img/camp2.jpg" style="width:100%">
+							<div class="text">Mentors preparing meals for the children.</div>
+						</div>
+					<div class="mySlides fade">
+						<div class="numbertext">2 / 3</div>
+							<img src="../img/camping.jpg" style="width:100%">
+						<div class="text">It was cold at night.</div>
+					</div>
+
+					<div class="mySlides fade">
+						<div class="numbertext">3 / 3</div>
+							<img src="../img/camp3.jpg" style="width:100%">
+						<div class="text">Kids posing.</div>
+					</div>
+
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
+					</div>
+					<br>
+
+					<div style="text-align:center">
+						<span class="dot" onclick="currentSlide(1)"></span> 
+						<span class="dot" onclick="currentSlide(2)"></span> 
+						<span class="dot" onclick="currentSlide(3)"></span> 
+					</div>
+
+				    <div id = "text">
 					The 4th graders went on a camping trip with one another. They developed skills in teamwork, leadership, and survival. In addition, an appreciation for what we already have was developed from the harsh conditions while camping. Many students reported they would be interested in future camping trips and had a positive experience.
+					</div>
 				</p>
 			</li>
 
