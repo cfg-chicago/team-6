@@ -29,8 +29,7 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 
     $scope.open_login = function open_login() {
         $scope.isAuth = false;
-<<<<<<< HEAD
-=======
+
 
 
         //var userID = firebase.auth().currentUser.uid;
@@ -42,7 +41,7 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
         //     "interests": "soccer"
         // });
 
->>>>>>> 07547b70f06dabede4e1e70ce3c78ab480f1aa0c
+
       }
 
       $scope.log_out = function log_out(){
@@ -103,7 +102,13 @@ app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
     //getuserdata from firebase
 
 
-    $scope.color = "";
+    $scope.backgroundcolor={
+        a: false,
+        b: false,
+        c: true
+
+    };
+    
 
 
 

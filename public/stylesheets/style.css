@@ -540,3 +540,16 @@ Main Components
   right: 25%;
   padding: 10px;
 }
+
+.white{
+    background-color: white;
+}
+.blue{
+    background-color: #7FB7BE;
+}
+.yellow{
+    background-color: #DACC3E;
+}
+.lblue{
+    background-color: #D3F3EE;
+}
