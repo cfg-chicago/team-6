@@ -1,4 +1,4 @@
-app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
+app.controller('AuthCtrl', function($rootScope, $scope, $timeout, $mdSidenav, $log, $location) {
 
 
 
@@ -13,6 +13,7 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 
       });
         var userId = firebase.auth().currentUser.uid;
+        $rootScope.userId=userId;
     function getFromFirebase(){
         firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
       console.log(snapshot.val());
@@ -201,7 +202,7 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
 
 });
 
-app.controller('GraphCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
+app.controller('GraphCtrl', function($rootScope, $scope, $timeout, $mdSidenav, $log, $location, $firebase) {
   $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September','October'];
     $scope.series = ['Series A', 'Series B'];
     ///read from db
@@ -214,14 +215,22 @@ app.controller('GraphCtrl', function($scope, $timeout, $mdSidenav, $log, $locati
     });
     $scope.avg= total/sample_length;
 
-    
+    function getFromFirebase(){
+        firebase.database().ref('/users/' + $rootScope.userId).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+    });
+
+    }
+    getFromFirebase();
+
+        
     $scope.data = [
         [28, 48, 40, 19, 86, 27, 0]
     ];
-});
+
  
 
-
+});
 
 
 app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
