@@ -1,12 +1,12 @@
 app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
     console.log('Auth Controller!');
-        $scope.auth = function auth() {
-        
+    $scope.auth = function auth() {
+
         firebase.auth().signInWithEmailAndPassword($scope.username, $scope.password).catch(function(error) {
 
         });
 
-        $scope.isAuth=true;
+        $scope.isAuth = true;
     }
 
 
@@ -145,6 +145,13 @@ app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $locati
 
     };
 });
+
+app.controller('slideShowCtrl', ['$scope', function($scope) {
+    $scope.slides = [
+        { name: 'Not my cat.', url: 'https://farm2.staticflickr.com/1318/5114665665_e55b2c2169_n.jpg' },
+        { name: 'Again, not my cat.', url: 'https://farm2.staticflickr.com/1079/901626554_8bc51ec160_n.jpg' }
+    ]
+}]);
 app.controller('LeftCtrl', function($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function() {
         // Component lookup should always be available since we are not using `ng-if`
