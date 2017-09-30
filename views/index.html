@@ -35,12 +35,16 @@
                 <div flex flex-offset="10">
                 </div>
                 <div hide show-gt-sm layout="row">
+                    <md-button ng-href="/group">Group</md-button>
+
+                    <md-button ng-href="/user">Profile</md-button>
+
                     <md-button ng-hide="logged_in" ng-click="open_login()" id="login_btn">Login</md-button>
                     <md-button ng-hide="!logged_in" ng-click="log_out()" id="logout">Logout</md-button>
                 </div>
 
             </div>
-            <div class="logo" layout-align="center center"><img src="../img/woodlogo.png"></img></div>
+            <div class="logo" layout-align="center center"><a href="/"><img src="../img/woodlogo.png"></img></a></div>
         </md-toolbar>
 
         <div id="login_div" ng-hide="isAuth" layout-align="center center" layout="column">
