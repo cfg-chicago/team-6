@@ -1,10 +1,5 @@
-<h1>User page</h1>
 
-<div>
-    <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-primary">
-        Toggle right
-    </md-button>
-</div>
+
 
 <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
     <md-content ng-controller="RightCtrl" layout-padding>
@@ -18,12 +13,11 @@
         <md-button ng-click="close()" class="md-primary">
             Close Sidenav Right
         </md-button>
+        <md-button  ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Cancel</md-button>
+        <md-button  ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Save</md-button>
     </md-content>
 </md-sidenav>
 
-<md-button ng-click="close()" class="md-primary">
-    Close Sidenav Right
-</md-button>
 <div class="user-Logo">
 	<img ng-src=""/>
 </div>
@@ -31,6 +25,29 @@
 <div class="user-projects"></div>
 <div class="user-timeline"></div>
 <div class="user-about"></div>
+<div layout="row" layout-align="end center">
+	<md-button  ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised md-warn">Edit</md-button>
+</div>
+
+
+<div layout="row" layout-align="start center">
+<div flex="35" class="PP">
+	<img ng-src="img/PP.jpg" alt=""/>
+</div>
+<div flex="65" class="user-about">
+	<h1>All about Timmy:</h1>
+	<p> I'm a young and ambitious kid! When I grow up I want to be a doctor, a lawyer and a baseball player!</p>
+</div>
+      
+ </div>
+
+<div> 
+	<md-content ng-controller="FeedbackCtrl" layout-padding>
+	<md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Sentiment analysis</md-button>
+<pre>{{sentiment}}</pre></div>
+</md-content>
+
+
 
 	<div layout="row" layout-align="start center" layout-padding>
 	<div flex="40" class="user-interests">
