@@ -1,80 +1,172 @@
-<div id="background" ng-class="{blue: {{backgroundcolor.a}}, lblue: backgroundcolor.b, yellow: backgroundcolor.c}">
-<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
-    <md-content ng-controller="RightCtrl" layout-padding>
-        <md-list flex>
-            <md-list-item>
-                choose background color:
-                <md-radio-group ng-model="backgroundcolor">
-                    <md-radio-button value="Blue" class="">Blue</md-radio-button>
-                    <md-radio-button value="LightBlue"> LightBlue </md-radio-button>
-                    <md-radio-button value="Yellow">Yellow</md-radio-button>
-                </md-radio-group>
-                <div class="md-list-item-text" layout="column">
-                </div>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-                <p>Option2</p>
-            </md-list-item>
-            <md-divider></md-divider>
-            <md-list-item>
-                <p>Option3</p>
-            </md-list-item>
-        </md-list>
-        <md-button ng-click="close()" class="md-primary">
-            Close Sidenav Right
-        </md-button>
-        <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Cancel</md-button>
-        <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Save</md-button>
-    </md-content>
-</md-sidenav>
-<div class="user-Logo">
-    <img ng-src="" />
-</div>
-<div class="user-PP"></div>
-<div class="user-projects"></div>
-<div class="user-timeline"></div>
-<div class="user-about"></div>
-<div layout="row" layout-align="end center">
-    <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised md-warn">Edit</md-button>
-</div>
-<div layout="row" layout-align="start center">
-    <div flex="35" class="PP">
-        <img ng-src="img/PP.jpg" alt="" />
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="../stylesheets/style.css">
+<link rel="stylesheet" href="../stylesheets/style2.css">
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js'></script>
+<script src="../js/timeline.js"></script>
+
+<div id="background" ng-class="{blue: backgroundcolor.a, lblue: backgroundcolor.b, yellow: backgroundcolor.c}">
+    <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+        <md-content ng-controller="RightCtrl" layout-padding>
+            <md-list flex>
+                <md-list-item>
+                    choose background color:
+                    <md-switch ng-model="backgroundcolor.a" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                        Switch 1 (md-warn): {{ backgroundcolor.a }}
+                    </md-switch>
+                     <md-switch ng-model="backgroundcolor.b" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                        Switch 2 (md-warn): {{ backgroundcolor.b }}
+                    </md-switch>
+                     <md-switch ng-model="backgroundcolor.c" aria-label="Switch 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+                        Switch 3 (md-warn): {{ backgroundcolor.c }}
+                    </md-switch>
+
+                    <div class="md-list-item-text" layout="column">
+                    </div>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item>
+                    <p>Option2</p>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item>
+                    <p>Option3</p>
+                </md-list-item>
+            </md-list>
+            <md-button ng-click="close()" class="md-primary">
+                Close Sidenav Right
+            </md-button>
+            <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Cancel</md-button>
+            <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised ">Save</md-button>
+        </md-content>
+    </md-sidenav>
+    <div class="user-Logo">
+        <img ng-src="" />
     </div>
-    <div flex="65" class="user-about">
-        <h1>All about Timmy:</h1>
-        <p> I'm a young and ambitious kid! When I grow up I want to be a doctor, a lawyer and a baseball player!</p>
+    <div class="user-PP"></div>
+    <div class="user-projects"></div>
+    <div class="user-timeline"></div>
+    <div class="user-about"></div>
+    <div layout="row" layout-align="end center">
+        <md-button ng-click="toggleRight()" ng-hide="isOpenRight()" class="md-raised md-warn">Edit</md-button>
     </div>
-</div>
-<div>
-    <md-content ng-controller="FeedbackCtrl" layout-padding>
-        <md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Sentiment analysis</md-button>
-        <pre>{{sentiment}}</pre></div>
-</md-content>
-<div layout="row" layout-align="start center" layout-padding>
-    <div flex="40" class="user-interests">
-        <md-card>
-            <img ng-src="img/baseball.jpg " class="md-card-image" alt="Washed Out">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Interests</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>
-                    Baseball, soccer, reading, sleeping, memes <i class="material-icons">mode_edit</i>
-                </p>
-            </md-card-content>
-        </md-card>
+    <div layout="row" layout-align="start center" layout-padding>
+        <div flex="35" class="PP">
+            <img ng-src="img/PP.jpg" alt="" />
+        </div>
+        <div flex="65" class="user-about">
+
+            <h1>All about Timmy:</h1>
+            <p> I'm a young and ambitious kid! When I grow up I want to be a doctor, a lawyer and a baseball player!</p>
+        </div>
     </div>
-    <div flex="60" class="user-activity">
-        <h2> Latest activity</h2>
+    <section class="cd-horizontal-timeline">
+    	<div class="timeline">
+    		<div class="events-wrapper">
+    			<div class="events">
+    				<ol>
+    					<li><a href="#0" data-date="16/01/2014" class="selected">Camping Trip</a></li>
+    					<li><a href="#0" data-date="28/02/2014">Baseball </a></li>
+    					<li><a href="#0" data-date="05/04/2014">Pumpkin Carving</a></li>
+    					<li><a href="#0" data-date="20/05/2014">Park Trip</a></li>
+    					<li><a href="#0" data-date="09/07/2014">2013</a></li>
+    					<li><a href="#0" data-date="30/08/2014">2014</a></li>
+    					<li><a href="#0" data-date="15/09/2014">2015</a></li>
+    					<li><a href="#0" data-date="01/11/2014">2016</a></li>
+    				</ol>
+
+    				<span class="filling-line" aria-hidden="true"></span>
+    			</div> <!-- .events -->
+    		</div> <!-- .events-wrapper -->
+
+    		<ul class="cd-timeline-navigation">
+    			<li><a href="#0" class="prev inactive">Prev</a></li>
+    			<li><a href="#0" class="next">Next</a></li>
+    		</ul> <!-- .cd-timeline-navigation -->
+    	</div> <!-- .timeline -->
+
+    	<div class="events-content">
+    		<ol>
+    			<li class="selected" data-date="16/01/2014">
+    				<h2>Awesome Camp Trip</h2>
+    				<em>4th Grade trip</em>
+    				<p>
+    					<img src="../img/camping.jpg" alt = "camp" class = "post_pic">
+    					The 4th graders went on a camping trip with one another. They developed skills in teamwork, leadership, and survival. In addition, an appreciation for what we already have was developed from the harsh conditions while camping. Many students reported they would be interested in future camping trips and had a positive experience.
+    				</p>
+    			</li>
+
+    			<li data-date="28/02/2014">
+    				<h2>Baseball</h2>
+    				<em>7th Graders vs 8th Graders</em>
+    				<p>
+    				<img src="../img/game.jpg" alt = "game" class = "post_pic">
+    				The 7th and 8th graders duked it out in a close game of baseball. The 8th graders pulled ahead early, but the 7th graders made a comeback towards the end to secure the victory. Today the younger children are victorious over the older and more seasoned students here at Woods Family Foundation!
+    				</p>
+    			</li>
+
+    			<li data-date="05/04/2014">
+    				<h2>Pumpkin Carving</h2>
+    				<em>5th Graders Learn Carving</em>
+    				<p>
+    					<img src="../img/pumpkin.jpg" alt = "carving" class = "post_pic">
+    					5th graders gathered today after class to carve pumpkings with mentors! Knives and proper safety was taught to all participating students. Many cute and adorable pumpkins were carved! Alicia carved the best pumpkin and won a gift card
+    				</p>
+    			</li>
+
+    			<li data-date="20/05/2014">
+    				<h2>Park Trip</h2>
+    				<em>Children walk around park</em>
+    				<p>
+    					<img src="../img/walking.jpg" alt = "park" class = "post_pic">
+    					Today we escaped the confines to enjoy the beautiful Chicago weather! Children walked and several rounds of icebreakers were played between children. Hard to beat new friendships, good weather, and the beautiful weather Chicago has to offer!
+    				</p>
+    			</li>
+    		</ol>
+    	</div> <!-- .events-content -->
+    </section>
+    <div ng-controller="FeedbackCtrl" layout-padding>
+    <div ng-hide="submitted" class="chat">
+    	<h3>Hey {{user.name}}, tell us about your experience :)</h3>
+
+        <md-input-container class="md-block">
+          <label>Tell us how you feel</label>
+          <textarea ng-model="input"  md-maxlength="400" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+
+            <md-button ng-click="sentimentAnalysisCall()" class="md-primary"> Submit</md-button>
+            <pre>{{sentiment}}</pre>
+            <div ng-show="submitted1">
+            	<p>Thank you for your response :) </p>
+            </div>
+        </div>
+    	</div>
+
+    <div layout="row" layout-align="start center" layout-padding>
+        <div flex="40" class="user-interests">
+            <md-card>
+                <img ng-src="img/baseball.jpg " class="md-card-image" alt="Washed Out">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Interests</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        Baseball, soccer, reading, sleeping, memes <i class="material-icons">mode_edit</i>
+                    </p>
+                </md-card-content>
+            </md-card>
+        </div>
+        <div flex="60" class="user-activity">
+            <h2> Latest activity</h2>
+        </div>
     </div>
-</div>
-<div class="user-fav-song"></div>
-<md-button>edit</md-button>
+    <div class="user-fav-song"></div>
+    <md-button>edit</md-button>
 </div>

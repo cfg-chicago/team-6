@@ -12,6 +12,14 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 
 
       });
+        var userId = firebase.auth().currentUser.uid;
+    function getFromFirebase(){
+        firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      console.log(snapshot.val());
+    });
+
+    }
+    getFromFirebase();
         $scope.logged_in = true;
         $scope.isAuth=true;
       }
@@ -75,12 +83,9 @@ app.controller('AuthCtrl', function($scope, $timeout, $mdSidenav, $log, $locatio
 app.controller('AppCtrl', function($scope, $timeout, $mdSidenav, $log) {
     console.log('App Controller!');
 });
-app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log) {
+app.controller('UserCtrl', function($scope, $timeout, $mdSidenav, $log, $firebase, $firebaseAuth) {
     //getuserdata from firebase
-    var userId = firebase.auth().currentUser.uid;
-    return firebase.database().ref('/users/' + userId).once('background').then(function(snapshot) {
-      var color = snapshot.val();
-    });
+    
 
 
 
@@ -158,7 +163,7 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             "documents": [{
                 "language": "en",
                 "id": "12345",
-                "text": "The field trip was super fun. I think I would like to go again. I really dont like my teacher though. i hate school. school is such a bitch"
+                "text": $scope.input
             }]
         };
 
@@ -174,11 +179,17 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
             data: payload
         };
 
+
         $http(config).then(function successCallback(response) {
             // this callback will be called asynchronously
             // when the response is available
             $scope.sentiment=response;
+
             console.log(response);
+            $scope.submitted1=true;
+            $timeout( function() {
+                $scope.submitted=true;
+            },750);
 
         }, function errorCallback(response) {
             console.log(response);
@@ -189,6 +200,29 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
     }
 
 });
+
+app.controller('GraphCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
+  $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September','October'];
+    $scope.series = ['Series A', 'Series B'];
+    ///read from db
+    var sample_data=[0.28, 0.48, 0.69, 0.19, 0.86, 0.27, 0.98];
+    var sample_length=sample_data.length;
+    var total =sample_data.map(function(e){
+        return e*100;
+    }).reduce(function(prev,value){
+        return (prev || 0) + value;
+    });
+    $scope.avg= total/sample_length;
+
+    
+    $scope.data = [
+        [28, 48, 40, 19, 86, 27, 0]
+    ];
+});
+ 
+
+
+
 
 app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
     $scope.close = function() {

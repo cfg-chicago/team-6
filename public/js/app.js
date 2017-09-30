@@ -9,7 +9,7 @@
       };
       firebase.initializeApp(config); 
 
-  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'simple-slideshow']);
+  var app = angular.module('myApp', ['ngRoute', 'ngMaterial', 'ngAnimate', 'firebase', 'chart.js']);
 
 app.config(function($routeProvider, $locationProvider) {
   $routeProvider
@@ -18,6 +18,7 @@ app.config(function($routeProvider, $locationProvider) {
   .when("/user", {templateUrl: "partials/user-template.html", controller: "UserCtrl"})
   .when("/", {templateUrl: "partials/home.html", controller: "AppCtrl"})
   .when("/group", {templateUrl: "partials/group-template.html", controller: "AppCtrl"})
+  .when("/graph", {templateUrl: "partials/graph.html", controller: "GraphCtrl"})
 
 /* etc… routes to other pages… */
 .otherwise( {templateUrl: "partials/home", controller: "AppCtrl"});
