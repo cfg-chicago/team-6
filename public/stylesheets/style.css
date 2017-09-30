@@ -576,3 +576,8 @@ Main Components
 .fade.ng-leave.ng-leave-active {
   opacity:0;
 }
+
+.center{
+  left: 25%;
+  right: 25%;
+}
