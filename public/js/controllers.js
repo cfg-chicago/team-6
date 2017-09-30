@@ -196,6 +196,29 @@ app.controller('FeedbackCtrl', function($scope, $timeout, $http, $location) {
 
 });
 
+app.controller('GraphCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
+  $scope.labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September','October'];
+    $scope.series = ['Series A', 'Series B'];
+    ///read from db
+    var sample_data=[0.28, 0.48, 0.69, 0.19, 0.86, 0.27, 0.98];
+    var sample_length=sample_data.length;
+    var total =sample_data.map(function(e){
+        return e*100;
+    }).reduce(function(prev,value){
+        return (prev || 0) + value;
+    });
+    $scope.avg= total/sample_length;
+
+    
+    $scope.data = [
+        [28, 48, 40, 19, 86, 27, 0]
+    ];
+});
+ 
+
+
+
+
 app.controller('RightCtrl', function($scope, $timeout, $mdSidenav, $log, $location) {
     $scope.close = function() {
         // Component lookup should always be available since we are not using `ng-if`
