@@ -112,9 +112,6 @@
     filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00ff', endColorstr='#ff0000')";
 }
 
-
-
-
 /* --------------------------------
 
 Primary style
@@ -123,6 +120,10 @@ Primary style
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 *, *::after, *::before {
   box-sizing: border-box;
+}
+
+.text{
+  margin-top: -300px;
 }
 
 html {
@@ -141,7 +142,7 @@ a {
   text-decoration: none;
 }
 
-.post_pic {
+.post_pic, .mySlides {
   width: 100%;
   height: 100%;
 }
