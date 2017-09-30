@@ -552,9 +552,9 @@ Main Components
 .blue{
     background-color: #7FB7BE;
 }
-.yellow{
+/*.yellow{
     background-color: #DACC3E;
-}
+}*/
 .lblue{
     background-color: white;
 }
@@ -575,4 +575,14 @@ Main Components
 }
 .fade.ng-leave.ng-leave-active {
   opacity:0;
+}
+
+.center{
+  left: 25%;
+  right: 25%;
+}
+
+.logo{
+  margin-left: 42.5%;
+  margin-bottom: 5%;
 }
