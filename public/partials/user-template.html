@@ -1,5 +1,5 @@
 
-<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-disable-backdrop md-component-id="right">
     <md-content ng-controller="RightCtrl" layout-padding>
 		
         <form>
@@ -10,7 +10,7 @@
         </form>
         <md-list flex>
                     <md-list-item >
-                    choose background color: <input type="text">
+                    choose background color: <input ng-model="$parent.backgroundcolor" type="text">
                         <div class="md-list-item-text" layout="column">
                         </div>
                     </md-list-item>
