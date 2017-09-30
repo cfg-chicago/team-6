@@ -103,7 +103,7 @@
 
 
 
-/* -------------------------------- 
+/* --------------------------------
 
 Primary style
 
@@ -134,9 +134,9 @@ a {
   height: 100%;
 }
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main Components 
+Main Components
 
 -------------------------------- */
 .cd-horizontal-timeline {
@@ -516,4 +516,9 @@ Main Components
     -o-transform: translateX(0%);
     transform: translateX(0%);
   }
+}
+
+/*login box css*/
+#login_div {
+  z-index: 10000;
 }
